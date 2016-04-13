@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+    <style>
+      #veil {
+        background-color: rgba(0,0,0,0.3);
+        color: white;
+        width: 100vw;
+        height: 100vh;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        z-index: 1000;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="veil">
+      <h3>Will quit in 2 seconds ...</h3>
+    </div>
+    <script type="text/javascript">
+      var Reddit = require('../es5/frontend/reddit.js');
+      var ipcRenderer = require('electron').ipcRenderer;
+      ipcRenderer.on('info', function(sender, message) {
+        if (message.type === 'will-quit') {
+          document.getElementById('veil').style.display = 'flex';
+        }
+      });
+      ipcRenderer.on('command', function(sender, message) {
+        // console.log('rendered', message);
+        switch (message.type) {
+          case 'show-allsubreddit':
+            document.querySelector('title').innerHTML = 'All subreddits';
+            Reddit.showAllSubreddits(document.getElementById('app'));
+            return;
+          case 'show-subreddit':
+            document.querySelector('title').innerHTML = message.payload.subreddit;
+            Reddit.showSubreddit(message.payload.subreddit, document.getElementById('app'));
+            return;
+          case 'show-image':
+            document.querySelector('title').innerHTML = 'Image';
+            Reddit.showImage(message.payload.url, document.getElementById('app'));
+            return;
+          default:
+            return null;
+        }
+      });
+    </script>
+  </body>
+</html>
