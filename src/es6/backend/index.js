@@ -53,41 +53,29 @@ app.on('window-all-closed', () => app.quit());
 // lorsque l'application est prete à démarrer
 app.on('ready', () => {
 
-  // on créé la fenetre principale
-  const redditsWindow = new BrowserWindow({ width: 400, height: 600, resizable: false });
+  // on créé la fenetre principale de 400 par 600
   // on lui demande de charger la vue principale, dans notre cas le fichier index.html dans static
-  redditsWindow.loadURL(`file://${__dirname}/../../static/index.html`);
   // lorsque la vue est chargée dans le renderer chrome
-  redditsWindow.webContents.on('did-finish-load', () => {
-    // on lui envoi un evenement pour lancer l'affichage désiré
-    redditsWindow.webContents.send('command', { type: 'show-allsubreddit' });
-  });
+  // on lui envoi un evenement pour lancer l'affichage désiré
+  // TODO
 
   // si on recoit une commande venant d'un des renderer (fenetre)
   ipcMain.on('command', (sender, { type, payload }) => {
-    // console.log('main process', type, payload);
     // on vérifie le type
     switch (type) {
       case 'quit-app':
         // on broadcast un message a toutes les fenetres ouvertes pour dire que l'application se termine
-        values(subredditWindows)
-          .concat(values(imageWindows))
-          .forEach(win => win.webContents.send('info', { type: 'will-quit' }));
-        setTimeout(() => app.quit(), 2000); // on quitte l'application au bout de 2 secondes
+        // TODO
         return;
       case 'open-subreddit-window':
         const { subreddit } = payload;
         // on ouvre une nouvelle fenetre pour afficher un subreddit particulier
-        openWindow(subredditWindows, 'subreddit', subreddit, 'show-subreddit');
+        // TODO
         return;
       case 'open-image-window':
         const { url, width, height } = payload;
         // on ouvre une nouvelle fenetre pour afficher une image particuliere
-        if (width > height) {
-          openWindow(imageWindows, 'url', url, 'show-image', 600, 400);
-        } else {
-          openWindow(imageWindows, 'url', url, 'show-image', 400, 600);
-        }
+        // TODO
         return;
       default:
         return null;

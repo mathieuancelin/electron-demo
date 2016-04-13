@@ -21,7 +21,13 @@
     </style>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <div style="display: flex; flex-direction: column; margin: 10px 10px 10px 10px;">
+        <div style="display: flex; align-items: center; justify-content: center; width: 100%; margin-top: 200px">
+          <h3>Hello Web Team</h3>
+        </div>
+      </div>
+    </div>
     <div id="veil">
       <h3>Will quit in 2 seconds ...</h3>
     </div>
@@ -32,12 +38,13 @@
       var Reddit = require('../es5/frontend/reddit.js');
       // on récupère le bus d'évènement
       var ipcRenderer = require('electron').ipcRenderer;
+
       // si on revoit un message de type info
       ipcRenderer.on('info', function(sender, message) {
         // qui annonce que l'application va se terminer
         if (message.type === 'will-quit') {
-          // on affiche un voile gris par dessus la vue courante
-          document.getElementById('veil').style.display = 'flex';
+          // on affiche un voile gris par dessus la vue courante en flex
+          // TODO
         }
       });
       // si on revoit un message de type commande
@@ -48,19 +55,19 @@
             // on change le titre de la page courange
             document.querySelector('title').innerHTML = 'All subreddits';
             // on affiche la vue reddit pour tous les subreddits
-            Reddit.showAllSubreddits(document.getElementById('app'));
+            // TODO
             return;
           case 'show-subreddit':
             // on change le titre de la page courange
             document.querySelector('title').innerHTML = message.payload.subreddit;
             // on affiche la vue reddit pour le subreddit désirée
-            Reddit.showSubreddit(message.payload.subreddit, document.getElementById('app'));
+            // TODO
             return;
           case 'show-image':
             // on change le titre de la page courange
             document.querySelector('title').innerHTML = 'Image';
             // on affiche la vue reddit pour l'image désirée
-            Reddit.showImage(message.payload.url, document.getElementById('app'));
+            // TODO
             return;
           default:
             return null;
