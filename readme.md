@@ -31,6 +31,6 @@ Pour comprendre le fonctionnement de l'application, voici les 3 points d'entrée
 
 * [le point d'entrée pour le main process](https://github.com/mathieuancelin/electron-demo/blob/master/src/es6/backend/index.js)
 * [la vue html affichée par chaque renderer chrome](https://github.com/mathieuancelin/electron-demo/blob/master/src/static/index.html)
-* [l'application javascript responsable de l'affichage de Reddit dans les renderer](https://github.com/mathieuancelin/electron-demo/blob/master/src/es6/frontend/reddit.js)
+* [l'application javascript responsable de l'affichage de Reddit dans les renderer chrome](https://github.com/mathieuancelin/electron-demo/blob/master/src/es6/frontend/reddit.js)
 
 ![app](https://raw.githubusercontent.com/mathieuancelin/electron-demo/master/reddit.png)
