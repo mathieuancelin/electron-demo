@@ -1,3 +1,6 @@
 /node_modules
 /src/es5
+/cache
+/dist
+/app
 .DS_Store

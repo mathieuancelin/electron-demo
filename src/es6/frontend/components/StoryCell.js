@@ -1,6 +1,6 @@
 import Elem from 'elemjs';
 
-import { Style } from '../Style';
+import { Style } from './Style';
 
 // un simple composant pour render une cellule dans une liste de d'histoire d'un subreddit
 export function StoryCell(props) {
@@ -9,7 +9,9 @@ export function StoryCell(props) {
     <div
       style={Style.storyCell}
       onclick={() => props.open(url, width, height)}>
-        <img style={{ width: '60px', height: '60px' }} src={props.story.thumbnail} />
+        <div style={{ width: '60px', height: '60px' }}>
+          <img style={{ width: '60px', height: '60px' }} src={props.story.thumbnail} />
+        </div>
         <p style={{ marginLeft: '10px' }}>
           {props.story.title}
         </p>

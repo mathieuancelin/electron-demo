@@ -1,11 +1,19 @@
 {
   "name": "electron-demo",
   "version": "1.0.0",
-  "description": "Just a simple demo",
+  "description": "a simple demo of a reddit client build with electron",
   "main": "src/es5/backend/index.js",
   "scripts": {
     "start": "electron .",
-    "dev": "babel src/es6 --watch --out-dir src/es5"
+    "dev": "babel src/es6 --watch --out-dir src/es5",
+    "build": "npm run babel-build && npm run build-dist",
+    "babel-build": "babel src/es6 --out-dir src/es5",
+    "cleanup": "rm -rf dist && rm -rf app",
+    "build-dist": "npm run prepare-build && npm run build-win && npm run build-linux && npm run build-mac && rm -rf app",
+    "prepare-build": "npm run cleanup && mkdir app && cp package.json app && cp -r src app && cp -r node_modules app",
+    "build-win": "electron-zip-packager app redditclient --out=dist --platform=win32 --arch=x64 --version=0.37.4 --asar=true --cache=./cache --name=RedditClient --overwrite=true",
+    "build-mac": "electron-zip-packager app redditclient --out=dist --platform=darwin --arch=x64 --version=0.37.4 --asar=true --icon=./icons/logo --cache=./cache --name=RedditClient --overwrite=true",
+    "build-linux": "electron-zip-packager app redditclient --out=dist --platform=linux --arch=x64 --version=0.37.4 --asar=true --icon=./icons/logo --cache=./cache --name=RedditClient --overwrite=true"
   },
   "author": "Mathieu ANCELIN",
   "license": "MIT",

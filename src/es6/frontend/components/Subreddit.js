@@ -2,7 +2,7 @@ import Elem from 'elemjs';
 import { ipcRenderer } from 'electron';
 
 import { Loading } from './Loading';
-import { Style } from '../Style';
+import { Style } from './Style';
 import { StoryCell } from './StoryCell';
 
 // fonction permettant d'envoyer un message au main process
