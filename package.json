@@ -11,9 +11,9 @@
     "cleanup": "rm -rf dist && rm -rf app",
     "build-dist": "npm run prepare-build && npm run build-win && npm run build-linux && npm run build-mac && rm -rf app",
     "prepare-build": "npm run cleanup && mkdir app && cp package.json app && cp -r src app && cp -r node_modules app",
-    "build-win": "electron-zip-packager app RedditClient --out=dist --platform=win32 --arch=x64 --version=0.37.4 --asar=true --cache=./cache --name=RedditClient --overwrite=true",
-    "build-mac": "electron-zip-packager app RedditClient --out=dist --platform=darwin --arch=x64 --version=0.37.4 --asar=true --icon=./icons/logo --cache=./cache --name=RedditClient --overwrite=true",
-    "build-linux": "electron-zip-packager app RedditClient --out=dist --platform=linux --arch=x64 --version=0.37.4 --asar=true --icon=./icons/logo --cache=./cache --name=RedditClient --overwrite=true"
+    "build-win": "electron-zip-packager app RedditClient --out=dist --platform=win32 --arch=x64 --version=0.37.5 --asar=true --cache=./cache --name=RedditClient --overwrite=true",
+    "build-mac": "electron-zip-packager app RedditClient --out=dist --platform=darwin --arch=x64 --version=0.37.5 --asar=true --icon=./icons/logo --cache=./cache --name=RedditClient --overwrite=true",
+    "build-linux": "electron-zip-packager app RedditClient --out=dist --platform=linux --arch=x64 --version=0.37.5 --asar=true --icon=./icons/logo --cache=./cache --name=RedditClient --overwrite=true"
   },
   "author": "Mathieu ANCELIN",
   "license": "MIT",
