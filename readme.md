@@ -8,3 +8,5 @@ To try it, you just have to :
 npm install
 npm start
 ```
+
+![app](https://raw.githubusercontent.com/mathieuancelin/electron-demo/master/reddit.png)
