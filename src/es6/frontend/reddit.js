@@ -8,9 +8,13 @@ import { AllSubreddits } from './components/AllSubreddits';
 import { Subreddit } from './components/Subreddit';
 
 // ici les 3 fonctions de base exposées par l'application Reddit
+// ces fonctions seront appelées par src/static/index.html
+// en fonction des messages recus depuis le main process et afficheront
+// du contenu dans le renderer chrome ayant chargé le module
+//
 // chaque fonction va monter un composant Elem dans le container #app
 // puis lancer une requete ajax pour charger les données
-// puis redessine le composant avec les doonées
+// puis redessine le composant avec les données
 
 // affichage de la vue listant tous les subreddits
 export function showAllSubreddits(container) {
