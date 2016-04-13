@@ -29,7 +29,7 @@ export function AllSubreddits(props) {
   // si les données sont en court de chargement, on affiche un spinner
   if (props.loading) {
     return (
-      <Loading what="All subreddits" />
+      <h1>Loading TODO !!!</h1>
     );
   }
   // sinon, on affiche simplement une liste de SubredditCell
