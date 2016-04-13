@@ -15,6 +15,14 @@ et dans un autre terminal, lancez l'application
 npm start
 ```
 
+Pour construire des binaires adaptés à votre système d'exploitation
+
+```
+npm run build
+```
+
+Les fichiers `.zip` se trouveront dans le dossier `dist`
+
 L'application fonctionne de la manière suivant
 
 * Quand on lance l'application, une fenetre est affiché avec la liste des subreddits
