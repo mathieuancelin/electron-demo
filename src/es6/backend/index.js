@@ -24,10 +24,12 @@ function openWindow(cache, key, value, command, width, height) {
     cache[value] = newWindow;
     newWindow.on('closed', () => {
       delete cache[value];
+      app.dock.setBadge(`${values(subredditWindows).concat(values(imageWindows)).length}`);
     });
     newWindow.webContents.on('did-finish-load', () => {
       newWindow.webContents.send('command', { type: command, payload: { [key]: value } });
     });
+    app.dock.setBadge(`${values(subredditWindows).concat(values(imageWindows)).length}`);
   } else {
     cache[value].focus();
   }
