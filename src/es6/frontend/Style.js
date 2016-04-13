@@ -1,3 +1,4 @@
+// la feuille de style de notre application en pur javascript
 export const Style = {
   container: {
     display: 'flex',

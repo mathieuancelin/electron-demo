@@ -26,26 +26,40 @@
       <h3>Will quit in 2 seconds ...</h3>
     </div>
     <script type="text/javascript">
+      // dans tous les cas on charge l'application reddit.
+      // par default au chargement cette application ne fait rien du tout
+      // il va falloir l'appeler pour afficher quelquechose
       var Reddit = require('../es5/frontend/reddit.js');
+      // on récupère le bus d'évènement
       var ipcRenderer = require('electron').ipcRenderer;
+      // si on revoit un message de type info
       ipcRenderer.on('info', function(sender, message) {
+        // qui annonce que l'application va se terminer
         if (message.type === 'will-quit') {
+          // on affiche un voile gris par dessus la vue courante
           document.getElementById('veil').style.display = 'flex';
         }
       });
+      // si on revoit un message de type commande
       ipcRenderer.on('command', function(sender, message) {
         // console.log('rendered', message);
         switch (message.type) {
           case 'show-allsubreddit':
+            // on change le titre de la page courange
             document.querySelector('title').innerHTML = 'All subreddits';
+            // on affiche la vue reddit pour tous les subreddits
             Reddit.showAllSubreddits(document.getElementById('app'));
             return;
           case 'show-subreddit':
+            // on change le titre de la page courange
             document.querySelector('title').innerHTML = message.payload.subreddit;
+            // on affiche la vue reddit pour le subreddit désirée
             Reddit.showSubreddit(message.payload.subreddit, document.getElementById('app'));
             return;
           case 'show-image':
+            // on change le titre de la page courange
             document.querySelector('title').innerHTML = 'Image';
+            // on affiche la vue reddit pour l'image désirée
             Reddit.showImage(message.payload.url, document.getElementById('app'));
             return;
           default:

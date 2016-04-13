@@ -1,3 +1,4 @@
+// fetch d'un subreddit avec filtrage des images imgur et visible par les plus jeunes
 export function fetchSubreddit(subreddit) {
   return fetch(`http://www.reddit.com/r/${subreddit}.json?sort=top&t=month`)
     .then(r => r.json())
@@ -9,6 +10,7 @@ export function fetchSubreddit(subreddit) {
     });
 }
 
+// fetch de la liste des subreddits 
 export function fetchSubreddits() {
   return fetch('http://www.reddit.com/reddits.json')
     .then(r => r.json())

@@ -1,6 +1,9 @@
 import Elem from 'elemjs';
+
 import { Style } from '../Style';
 
+// Un simple composant pour rendre un écran composé d'un titre et d'un spinner
+// le titre est paramétrable via les props du composant
 export function Loading(props) {
   return (
     <div style={Style.container}>
