@@ -2,6 +2,8 @@
 
 Un client Reddit très simple qui explore les possibilités de l'API `ipc` d'Electron ainsi que son mode multi fenêtre (`BrowserWindow`)
 
+## Run
+
 Pour essayer l'application, installez les dépendances et lancez la compilation ES6 -> ES5
 
 ```
@@ -15,6 +17,8 @@ et dans un autre terminal, lancez l'application
 npm start
 ```
 
+## Build
+
 Pour construire des binaires adaptés à votre système d'exploitation
 
 ```
@@ -22,6 +26,8 @@ npm run build
 ```
 
 Les fichiers `.zip` se trouveront dans le dossier `dist`
+
+## Specs
 
 L'application fonctionne de la manière suivant
 
