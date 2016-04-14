@@ -2,8 +2,8 @@
   "name": "electron-demo",
   "version": "1.0.0",
   "description": "a simple demo of a reddit client build with electron",
-  "main": "src/es6/backend/bootstrap.js",
-  "main:old": "src/es5/backend/index.js",
+  "main:babel": "src/es6/backend/bootstrap.js",
+  "main": "src/es5/backend/index.js",
   "scripts": {
     "start": "electron .",
     "dev": "babel src/es6 --watch --out-dir src/es5",
